@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechWorld Electronics & Gadgets — responsive frontend internship project." />
+  <title>TechWorld - Electronics & Gadgets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span><i class="fa-solid fa-bolt"></i> Free delivery on orders above ₹999</span>
+        <span>TechWorld • Electronics & Gadgets</span>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="#home" data-route="home">
+          <span class="brand-icon"><i class="fa-solid fa-laptop"></i></span>
+          <span>Tech<span>World</span></span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+          <a href="#home" data-route="home">Home</a>
+          <a href="#products" data-route="products">Products</a>
+          <a href="#phones" data-route="products" data-category="phones">Phones</a>
+          <a href="#laptops" data-route="products" data-category="laptops">Laptops</a>
+          <a href="#audio" data-route="products" data-category="audio">Audio</a>
+          <a href="#wearables" data-route="products" data-category="wearables">Wearables</a>
+          <a href="#about" data-route="about">About</a>
+          <a href="#contact" data-route="contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button class="icon-btn" id="searchBtn" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <a class="icon-btn cart-btn" href="#cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount">0</span></a>
+          <div id="authArea"></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="page-section">
+      <div class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">NEW SEASON • SMARTER LIVING</span>
+            <h1>Upgrade Your World With <span>Better Tech.</span></h1>
+            <p>Discover smartphones, laptops, audio, wearables and everyday gadgets curated for work, play and everything in between.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#products">Shop Products <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-outline" href="#about">Explore TechWorld</a>
+            </div>
+            <div class="hero-stats">
+              <div><strong>500+</strong><small>Products</small></div>
+              <div><strong>4.8/5</strong><small>Customer rating</small></div>
+              <div><strong>24/7</strong><small>Online support</small></div>
+            </div>
+          </div>
+          <div class="hero-art">
+            <div class="glow"></div>
+            <div class="device device-phone"><div class="device-screen"></div></div>
+            <div class="device device-laptop"><div class="laptop-screen"><span>TECH</span></div><div class="laptop-base"></div></div>
+            <div class="floating-card"><i class="fa-solid fa-shield-halved"></i><div><b>Secure Shopping</b><small>Frontend demo checkout</small></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container section-pad">
+        <div class="section-heading"><div><span class="eyebrow">SHOP BY CATEGORY</span><h2>Find Your Next Favorite</h2></div><a href="#products">View all <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="category-grid">
+          <a href="#products" class="category-card" data-category-link="phones"><div class="cat-icon">📱</div><h3>Smartphones</h3><p>iPhone, Galaxy, Pixel & more</p></a>
+          <a href="#products" class="category-card" data-category-link="laptops"><div class="cat-icon">💻</div><h3>Laptops & Tablets</h3><p>Power for work and study</p></a>
+          <a href="#products" class="category-card" data-category-link="audio"><div class="cat-icon">🎧</div><h3>Audio & Wearables</h3><p>Headphones, watches & speakers</p></a>
+          <a href="#products" class="category-card" data-category-link="accessories"><div class="cat-icon">🔌</div><h3>Accessories</h3><p>Chargers, cables & protection</p></a>
+        </div>
+      </div>
+
+      <div class="container section-pad">
+        <div class="section-heading"><div><span class="eyebrow">TRENDING NOW</span><h2>Featured Products</h2></div><a href="#products">See all products <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div id="featuredGrid" class="product-grid"></div>
+      </div>
+
+      <div class="promo-strip">
+        <div class="container promo-inner"><div><span class="eyebrow">TECHWEEK SALE</span><h2>Save up to 30% on selected gadgets.</h2><p>Limited-time frontend demo offer.</p></div><a href="#products" class="btn btn-light">Shop Deals</a></div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="page-section hidden">
+      <div class="container section-pad">
+        <div class="page-title"><span class="eyebrow">TECHWORLD STORE</span><h1>All Products</h1><p>Browse our electronics collection and filter by category, brand, price and rating.</p></div>
+        <div class="shop-toolbar">
+          <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="productSearch" type="search" placeholder="Search products..."></div>
+          <select id="categoryFilter"><option value="all">All categories</option><option value="phones">Smartphones</option><option value="laptops">Laptops & Tablets</option><option value="audio">Audio</option><option value="wearables">Wearables</option><option value="accessories">Accessories</option></select>
+          <select id="brandFilter"><option value="all">All brands</option><option>Apple</option><option>Samsung</option><option>Google</option><option>OnePlus</option><option>HP</option><option>Sony</option><option>Logitech</option><option>Anker</option><option>Garmin</option><option>Fitbit</option></select>
+          <select id="sortFilter"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="rating">Top Rated</option></select>
+        </div>
+        <div class="shop-layout">
+          <aside class="filter-panel">
+            <h3>Filter by price</h3>
+            <label>Maximum price <strong id="priceValue">₹3,00,000</strong></label>
+            <input id="priceFilter" type="range" min="500" max="300000" value="300000" step="500">
+            <hr>
+            <h3>Quick filters</h3>
+            <label class="check-row"><input type="checkbox" id="fourPlus"> 4★ & above</label>
+            <label class="check-row"><input type="checkbox" id="inStock"> In stock only</label>
+            <button class="btn btn-outline full" id="clearFilters">Clear filters</button>
+          </aside>
+          <div><div id="productCount" class="result-count"></div><div id="productsGrid" class="product-grid"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAIL -->
+    <section id="detail" class="page-section hidden">
+      <div class="container section-pad"><div id="detailContent"></div></div>
+    </section>
+
+    <!-- CART -->
+    <section id="cart" class="page-section hidden">
+      <div class="container section-pad">
+        <div class="page-title"><span class="eyebrow">YOUR BAG</span><h1>Shopping Cart</h1><p>Adjust quantities and review your order before checkout.</p></div>
+        <div id="cartContent"></div>
+      </div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section id="checkout" class="page-section hidden">
+      <div class="container section-pad">
+        <div class="page-title"><span class="eyebrow">SECURE CHECKOUT</span><h1>Complete Your Order</h1><p>This is a frontend-only checkout simulation for the internship project.</p></div>
+        <div class="checkout-layout">
+          <form id="checkoutForm" class="card form-card">
+            <h2>Shipping address</h2>
+            <div class="form-grid"><label>First name<input required name="first" placeholder="Praneeth"></label><label>Last name<input required name="last" placeholder="Sager"></label></div>
+            <label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+            <label>Phone<input required name="phone" placeholder="+91 98765 43210"></label>
+            <label>Address<input required name="address" placeholder="House / street / area"></label>
+            <div class="form-grid"><label>City<input required name="city" placeholder="Hyderabad"></label><label>PIN code<input required name="pin" placeholder="500001"></label></div>
+            <h2>Payment method</h2>
+            <label class="radio-card"><input type="radio" name="payment" value="card" checked> <span><b>Card</b><small>Visa, Mastercard, RuPay</small></span></label>
+            <label class="radio-card"><input type="radio" name="payment" value="upi"> <span><b>UPI</b><small>Google Pay, PhonePe, Paytm</small></span></label>
+            <label class="radio-card"><input type="radio" name="payment" value="cod"> <span><b>Cash on Delivery</b><small>Pay when your package arrives</small></span></label>
+            <button class="btn btn-primary full" type="submit">Place Order <i class="fa-solid fa-lock"></i></button>
+          </form>
+          <div id="checkoutSummary" class="card order-summary"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCOUNT -->
+    <section id="account" class="page-section hidden">
+      <div class="container section-pad"><div id="accountContent"></div></div>
+    </section>
+
+    <!-- AUTH -->
+    <section id="login" class="page-section hidden">
+      <div class="container auth-wrap"><div class="auth-card"><div class="auth-logo"><i class="fa-solid fa-laptop"></i></div><span class="eyebrow">WELCOME BACK</span><h1>Sign in to TechWorld</h1><p>Access your profile, wishlist and order history.</p>
+        <form id="loginForm"><label>Email<input required type="email" name="email" placeholder="you@example.com"></label><label>Password<input required type="password" name="password" placeholder="••••••••"></label><div class="form-row-between"><label class="remember"><input type="checkbox"> Remember me</label><a href="#" onclick="return false">Forgot password?</a></div><button class="btn btn-primary full">Login</button></form>
+        <div class="auth-switch">Don't have an account? <a href="#register">Create a new account</a></div></div></div>
+    </section>
+
+    <section id="register" class="page-section hidden">
+      <div class="container auth-wrap"><div class="auth-card"><div class="auth-logo"><i class="fa-solid fa-user-plus"></i></div><span class="eyebrow">JOIN TECHWORLD</span><h1>Create your account</h1><p>Save your details, orders and wishlist in this frontend demo.</p>
+        <form id="registerForm"><div class="form-grid"><label>First name<input required name="first" placeholder="First name"></label><label>Last name<input required name="last" placeholder="Last name"></label></div><label>Email<input required type="email" name="email" placeholder="you@example.com"></label><label>Password<input required type="password" name="password" minlength="6" placeholder="At least 6 characters"></label><label>Password confirmation<input required type="password" name="confirm" minlength="6" placeholder="Repeat password"></label><label class="remember"><input required type="checkbox"> I agree to the demo terms.</label><button class="btn btn-primary full">Create Account</button></form>
+        <div class="auth-switch">Already have an account? <a href="#login">Login</a></div></div></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="page-section hidden">
+      <div class="container section-pad"><div class="page-title"><span class="eyebrow">ABOUT TECHWORLD</span><h1>Technology that fits real life.</h1><p>TechWorld is a fictional electronics and gadgets storefront created as a frontend web-development internship project.</p></div>
+        <div class="about-grid"><div class="about-card"><i class="fa-solid fa-bullseye"></i><h2>Our mission</h2><p>Make browsing modern electronics simple, clear and enjoyable with a clean, product-focused shopping experience.</p></div><div class="about-card"><i class="fa-solid fa-users"></i><h2>Our team</h2><p>A simulated digital commerce team focused on product discovery, accessible design and responsive interfaces.</p></div><div class="about-card"><i class="fa-solid fa-code"></i><h2>Built for learning</h2><p>HTML5, CSS3 and vanilla JavaScript power this no-database project, with localStorage used for demo data.</p></div></div>
+        <div class="tech-note"><h2>Project features</h2><div class="feature-list"><span>✓ Product search & filters</span><span>✓ Product detail</span><span>✓ Cart & quantity controls</span><span>✓ Checkout simulation</span><span>✓ Login / logout</span><span>✓ Create account</span><span>✓ Wishlist</span><span>✓ Order history</span></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page-section hidden">
+      <div class="container section-pad"><div class="page-title"><span class="eyebrow">GET IN TOUCH</span><h1>Contact TechWorld</h1><p>Have a question about a product or your demo order?</p></div>
+        <div class="contact-grid"><div class="contact-info"><div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><b>Address</b><p>TechWorld HQ, Hyderabad, Telangana, India</p></div></div><div class="contact-item"><i class="fa-solid fa-phone"></i><div><b>Phone</b><p>+91 98765 43210</p></div></div><div class="contact-item"><i class="fa-solid fa-envelope"></i><div><b>Email</b><p>support@techworld.demo</p></div></div><div class="contact-item"><i class="fa-solid fa-clock"></i><div><b>Support</b><p>Mon–Sat, 9:00 AM–7:00 PM</p></div></div></div>
+        <form id="contactForm" class="card form-card"><h2>Send a message</h2><label>Name<input required placeholder="Your name"></label><label>Email<input required type="email" placeholder="you@example.com"></label><label>Message<textarea required rows="6" placeholder="How can we help?"></textarea></label><button class="btn btn-primary">Send Message</button></form></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid"><div><a class="brand footer-brand" href="#home"><span class="brand-icon"><i class="fa-solid fa-laptop"></i></span><span>Tech<span>World</span></span></a><p>Modern electronics and gadgets storefront demo.</p></div><div><h4>Shop</h4><a href="#products">All Products</a><a href="#products" data-footer-cat="phones">Smartphones</a><a href="#products" data-footer-cat="laptops">Laptops</a><a href="#products" data-footer-cat="audio">Audio</a></div><div><h4>Account</h4><a href="#login">Login</a><a href="#register">Create Account</a><a href="#account">My Account</a><a href="#cart">Cart</a></div><div><h4>Company</h4><a href="#about">About Us</a><a href="#contact">Contact Us</a><p class="small">© 2026 TechWorld Demo</p></div></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
